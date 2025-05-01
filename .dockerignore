@@ -1,0 +1,19 @@
+# Dépendances
+src/node_modules
+src/npm-debug.log
+
+# Fichiers de développement
+src/.git
+src/.gitignore
+src/.env
+src/.env.*
+
+# Fichiers système
+src/.DS_Store
+src/Thumbs.db
+
+# Fichiers de logs
+src/*.log
+
+# Fichiers de données (à ajuster selon vos besoins)
+# src/data/* 
