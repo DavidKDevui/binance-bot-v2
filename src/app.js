@@ -1,7 +1,3 @@
-// Dépendances
-const fs = require("fs");
-const dotenv = require("dotenv");
-
 // Services
 const assetsService = require("./services/assetsService.js");
 const walletService = require("./services/walletService.js");
@@ -12,12 +8,10 @@ const operationsService = require("./services/operationsService.js");
 const dateTools = require("./utils/date.js");
 const consoleTools = require("./utils/console.js");
 
-// Configuration
-dotenv.config();
+
 
 
 async function main() {
-
 
     let lastOperation = null;
 
