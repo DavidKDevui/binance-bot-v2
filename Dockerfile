@@ -1,5 +1,5 @@
 # Utiliser une image Node.js officielle comme base avec support multi-architecture
-FROM --platform=$BUILDPLATFORM node:18-alpine
+FROM node:18-alpine
 
 # Créer le répertoire de l'application
 WORKDIR /app

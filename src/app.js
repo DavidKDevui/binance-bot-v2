@@ -133,8 +133,6 @@ async function main() {
             const order = await operationsService.stopLoss();
             if (order instanceof Error){
                 consoleTools.showInConsole(`Erreur lors du stop loss: ${respone.message}`, "red");
-            } else {
-                process.exit(0);
             }
         }
 
@@ -150,7 +148,7 @@ async function main() {
 
 
         //Gestion de l'achat
-        if (lastOperation.type === "sell" && ethPrice <= startValue){
+        if ((lastOperation.type === "sell" && ethPrice <= startValue) || (lastOperation.type === "stop_loss" && ethPrice >= startValue &&  ethPrice < takeProfit)){
             consoleTools.showInConsole("Valeur d'achat atteinte, achat en cours...",  "yellow");
             const order = await operationsService.buy();
             if (order instanceof Error){

@@ -248,12 +248,19 @@ const operationsService = {
 
     getLastOperation: async (ethBalanceUsd, usdcBalanceUsd) => {
 
-        if  (ethBalanceUsd > usdcBalanceUsd){
-            return { type: "buy", date: null, ethPrice: null };
-        } else {
-            return { type: "sell", date: null, ethPrice: null };
-        }
+        const operationsHistory = JSON.parse(fs.readFileSync("./data/operations.json", "utf8"));
 
+        if (operationsHistory.operations && 
+            operationsHistory.operations.length === 0 && 
+            operationsHistory.operations[operationsHistory.operations.length - 1].type === "stop_loss"){
+            return operationsHistory.operations[operationsHistory.operations.length - 1];
+        } else {
+            if (ethBalanceUsd > usdcBalanceUsd){
+                return { type: "buy", date: null, ethPrice: null };
+            } else {
+                return { type: "sell", date: null, ethPrice: null };
+            }
+        } 
     },
 
     writeOperation: (operation) => {

@@ -13,3 +13,5 @@ src/Thumbs.db
 src/*.log
 
 src/data/*
+
+push-to-hub.sh
