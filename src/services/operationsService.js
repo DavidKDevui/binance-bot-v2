@@ -251,7 +251,7 @@ const operationsService = {
         const operationsHistory = JSON.parse(fs.readFileSync("./data/operations.json", "utf8"));
 
         if (operationsHistory.operations && 
-            operationsHistory.operations.length === 0 && 
+            operationsHistory.operations.length > 0 && 
             operationsHistory.operations[operationsHistory.operations.length - 1].type === "stop_loss"){
             return operationsHistory.operations[operationsHistory.operations.length - 1];
         } else {
